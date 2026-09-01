@@ -1,0 +1,8 @@
+numpy>=1.24
+scikit-learn>=1.3
+umap-learn>=0.5
+
+# pyUDLF is NOT on PyPI. Install it from source:
+#   git clone https://github.com/UDLF/pyUDLF.git
+#   cd pyUDLF && pip install -e .
+# See the README for details.

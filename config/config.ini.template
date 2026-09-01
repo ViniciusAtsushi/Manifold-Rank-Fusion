@@ -1,0 +1,79 @@
+###################################################
+#  - UNSUPERVISED DISTANCE LEARNING FRAMEWORK -   #
+#      CONFIGURATION FILE (project template)      #
+###################################################
+#
+# This is a template for UDLF's config.ini, trimmed down to the parameters
+# actually used by this project (CPRR, LHRR, RFE, and NONE for evaluation).
+# In practice, the example scripts build this configuration programmatically
+# through pyUDLF's `InputType` API (see src/manifold_rank_fusion/udlf_rerank.py)
+# rather than editing this file directly -- it is provided as a reference /
+# starting point if you prefer to drive UDLF directly.
+#
+# Replace every <...> placeholder before use.
+
+#########################
+# GENERAL CONFIGURATION #
+#########################
+UDL_TASK   = UDL          #(UDL|FUSION)
+UDL_METHOD = NONE         #(NONE|CPRR|LHRR|RFE): NONE just evaluates the input ranked list.
+
+#######################
+# INPUT DATASET FILES #
+#######################
+SIZE_DATASET      = <NUM_ITEMS_IN_DATASET>
+INPUT_FILE_FORMAT = RK
+INPUT_RK_FORMAT    = NUM
+INPUT_FILE         = <PATH_TO_RANKED_LIST_FILE>
+INPUT_FILE_LIST    = <PATH_TO_DATASET>_lists.txt
+INPUT_FILE_CLASSES = <PATH_TO_DATASET>_classes.txt
+
+#########################
+# OUTPUT FILES SETTINGS #
+#########################
+OUTPUT_FILE       = FALSE
+OUTPUT_FILE_FORMAT = RK
+OUTPUT_RK_FORMAT   = NUM
+OUTPUT_LOG_FILE_PATH = log.txt
+
+#######################
+# EVALUATION SETTINGS #
+#######################
+EFFICIENCY_EVAL                     = TRUE
+EFFECTIVENESS_EVAL                  = TRUE
+EFFECTIVENESS_COMPUTE_PRECISIONS    = TRUE
+EFFECTIVENESS_COMPUTE_MAP           = TRUE
+EFFECTIVENESS_COMPUTE_RECALL        = TRUE
+EFFECTIVENESS_RECALLS_TO_COMPUTE    = 40, 50, 100
+EFFECTIVENESS_PRECISIONS_TO_COMPUTE = 10, 20, 30, 50, 80, 100
+
+#####################
+# METHOD PARAMETERS #
+#####################
+# Paper defaults (Section 4.2): L = 1000, T = 2 for all datasets/methods.
+# K is adjusted per dataset size -- see DATASET_K in
+# src/manifold_rank_fusion/udlf_rerank.py (Flowers=80, Corel5k/Pets=100,
+# CUB200/Dogs=120).
+
+# NONE (evaluate an existing ranked list without re-ranking)
+PARAM_NONE_L = 1000
+
+# CPRR
+PARAM_CPRR_L = 1000
+PARAM_CPRR_K = 100
+PARAM_CPRR_T = 2
+
+# LHRR
+PARAM_LHRR_K = 100
+PARAM_LHRR_L = 1000
+PARAM_LHRR_T = 2
+
+# RFE
+PARAM_RFE_K = 100
+PARAM_RFE_T = 2
+PARAM_RFE_L = 1000
+PARAM_RFE_PA = 0.1
+PARAM_RFE_TH_CC = 0
+PARAM_RFE_RERANK_BY_EMB = FALSE
+PARAM_RFE_EXPORT_EMBEDDINGS = FALSE
+PARAM_RFE_PERFORM_CCS = FALSE

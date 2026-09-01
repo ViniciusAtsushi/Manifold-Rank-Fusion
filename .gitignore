@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Local data / experiment outputs -- not meant to be versioned here.
+# (data/ is intentionally NOT ignored: it ships the bundled Corel5k+SwinTF
+# sample used by the examples.)
+datasets/
+results/
+*.npy
+!data/**/*.npy
+comparison/
+output/
