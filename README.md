@@ -22,26 +22,18 @@ paper.
 
 ## Pipeline overview
 
-```
-features (.npy) ──┬─► BallTree ranking ─────────────────► original ranking
-                   │                                            │
-                   └─► UMAP projection ─► BallTree ranking       │
-                              │                (UMAP ranking)    │
-                              │                     │            ▼
-                              │                     │      LHRR/CPRR/RFE
-                              │                     │      re-ranking
-                              │                     │            │
-                              │                     ▼            │
-                              │              Rank aggregation ◄──┘
-                              │              (Borda / RRF / CombSUM)
-                              │                     │
-                              │                     ▼
-                              │           optional post re-rank
-                              │           (LHRR/CPRR/RFE)
-                              │                     │
-                              ▼                     ▼
-                                     MAP / Precision@k / Recall@k
-```
+![Pipeline overview: image dataset and feature extraction, ranked-list generation from both the original embedding and a UMAP projection, rank-based re-ranking, Borda Count aggregation, an optional post re-rank, and the final retrieval result](assets/pipeline_overview.png)
+
+Steps A-B (image dataset, feature extraction) are out of scope for this
+repository -- the example scripts start from pre-extracted `.npy` features.
+The rest maps directly onto them: `01_generate_ranking.py` covers D1/D2
+(ranked lists from the original embedding and from the UMAP projection),
+`02_rerank_with_pyudlf.py` covers E1 (LHRR/CPRR/RFE re-ranking),
+`03_aggregate_rankings.py` covers F (Borda Count / RRF / CombSUM
+aggregation), and `04_post_rerank_and_evaluate.py` covers G-H (post
+re-rank and the final retrieval result). Each intermediate stage can also
+be evaluated on its own, as done in the ablation-style comparison in
+`examples/notebook_example.ipynb`.
 
 ## Repository layout
 
