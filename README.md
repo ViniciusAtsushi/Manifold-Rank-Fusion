@@ -1,8 +1,13 @@
 # Manifold-Rank-Fusion
 
-Source code for **"Aggregating Neighbor Embedding Projection and Rank-Based
-Manifold Learning for Image Retrieval"** (Journal of the Brazilian Computer
-Society, JBCS).
+Reference implementation for the paper:
+
+> V. A. S. Kawai, G. R. Leticio, L. P. Valem, D. C. G. Pedronette.
+> **Aggregating Neighbor Embedding Projection and Rank-Based Manifold
+> Learning for Image Retrieval.** *Journal of the Brazilian Computer
+> Society*, 2026, 32:1.
+> DOI: [10.5753/jbcs.2026.5685](https://doi.org/10.5753/jbcs.2026.5685)
+> · Preprint: [arXiv:2609.01963](https://arxiv.org/abs/2609.01963)
 
 The framework combines two complementary strategies for content-based image
 retrieval:
@@ -196,9 +201,14 @@ python -m unittest discover -s tests -v
   title   = {Aggregating Neighbor Embedding Projection and Rank-Based Manifold Learning for Image Retrieval},
   author  = {Kawai, Vinicius Atsushi Sato and Leticio, Gustavo Rosseto and Valem, Lucas Pascotti and Pedronette, Daniel Carlos Guimar{\~a}es},
   journal = {Journal of the Brazilian Computer Society},
-  year    = {2026}
+  year    = {2026},
+  volume  = {32},
+  number  = {1},
+  doi     = {10.5753/jbcs.2026.5685}
 }
 ```
+
+A preprint is also available on arXiv: [arXiv:2609.01963](https://arxiv.org/abs/2609.01963) (DOI: [10.48550/arXiv.2609.01963](https://doi.org/10.48550/arXiv.2609.01963)).
 
 ## Contacts
 
